@@ -3987,3 +3987,51 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 29ms (Views: 17.8ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/authors" for 71.185.39.134 at 2020-07-09 13:41:54 +0000
+Cannot render console from 71.185.39.134! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AuthorsController#index as HTML
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (40.1ms)
+Completed 200 OK in 54ms (Views: 50.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/authors/6" for 71.185.39.134 at 2020-07-09 13:41:55 +0000
+Cannot render console from 71.185.39.134! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering authors/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = ?[0m  [["author_id", 6]]
+  Rendered authors/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 41ms (Views: 37.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/authors/6/posts/new" for 71.185.39.134 at 2020-07-09 13:41:56 +0000
+Cannot render console from 71.185.39.134! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#new as HTML
+  Parameters: {"author_id"=>"6"}
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (1.7ms)
+  Rendered posts/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 71.185.39.134 at 2020-07-09 13:42:08 +0000
+Cannot render console from 71.185.39.134! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MBk+YBD0sjBnJQyDpHY3a+l9d1FiStVAMAtqlXvddRuK5cTVCpXS+UqUmnKJzm6uCjUId4q2La4PLwQM2LXfNg==", "post"=>{"author_id"=>"", "title"=>"horse", "description"=>"horses be chillin"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Horse"], ["description", "horses be chillin"], ["created_at", "2020-07-09 13:42:08.823381"], ["updated_at", "2020-07-09 13:42:08.823381"]]
+  [1m[35m (85.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://167.99.15.173:39079/posts/18
+Completed 302 Found in 89ms (ActiveRecord: 85.8ms)
+
+
+Started GET "/posts/18" for 71.185.39.134 at 2020-07-09 13:42:08 +0000
+Cannot render console from 71.185.39.134! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
